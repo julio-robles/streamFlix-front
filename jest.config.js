@@ -1,7 +1,13 @@
 export default {
   preset: 'ts-jest',
   testEnvironment: 'node',
+  setupFiles: ['./jest.setup.ts'],
+  globals: {
+    'ts-jest': {
+      tsconfig: './tsconfig.jest.json'
+    }
+  },
   moduleNameMapper: {
-    '^@shared/(.*)$': '<rootDir>/src/$1'
+    '^@/utils/getBaseURL$': '<rootDir>/src/utils/getBaseURL.node.ts'
   }
 };
