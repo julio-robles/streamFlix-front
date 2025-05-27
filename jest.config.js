@@ -1,6 +1,6 @@
 export default {
   preset: 'ts-jest',
-  testEnvironment: 'node',
+  testEnvironment: 'jsdom',
   setupFiles: ['./jest.setup.ts'],
   globals: {
     'ts-jest': {
@@ -9,5 +9,10 @@ export default {
   },
   moduleNameMapper: {
     '^@/utils/getBaseURL$': '<rootDir>/src/utils/getBaseURL.node.ts'
-  }
+  },
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
+  transform: {
+    '^.+\\.(ts|tsx)$': 'ts-jest'
+  },
+  testMatch: ['**/tests/**/*.test.(ts|tsx)']
 };
