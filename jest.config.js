@@ -14,5 +14,5 @@ export default {
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest'
   },
-  testMatch: ['**/tests/**/*.test.(ts|tsx)']
+  testMatch: ['**/tests/**/*.test.(ts|tsx|js|jsx)']
 };
