@@ -32,4 +32,25 @@ describe('MovieService', () => {
 
     await expect(getMovieById(99)).rejects.toThrow();
   });
+
+  it('lanza error si la API falla', async () => {
+    (api.apiClient.get as jest.Mock).mockRejectedValue(new Error('API Error'));
+    await expect(getMovieById(123)).rejects.toThrow('API Error');
+  });
+
+  it('devuelve película válida con todos los campos del schema', async () => {
+    (api.apiClient.get as jest.Mock).mockResolvedValue({
+      data: {
+        id: 2,
+        title: 'Matrix',
+        release_date: '1999-03-31'
+      }
+    });
+    const movie = await getMovieById(2);
+    expect(movie).toEqual({
+      id: 2,
+      title: 'Matrix',
+      release_date: '1999-03-31'
+    });
+  });
 });
