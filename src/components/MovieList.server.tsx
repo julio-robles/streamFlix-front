@@ -46,7 +46,7 @@ export default function MoviesList({ query }: Props) {
           >
             <strong className="block text-lg font-bold mb-2">{item.show.name}</strong>
             {item.show.image && (
-              <img src={item.show.image.medium} alt={item.show.name} className="w-full h-auto rounded-md" />
+              <img src={item.show.image.medium} alt={item.show.name} className="w-32 h-32 object-cover rounded-md mx-auto" />
             )}
           </div>
         ))}
