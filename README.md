@@ -1,54 +1,127 @@
-# React + TypeScript + Vite
+# StreamFlix Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+StreamFlix es una aplicación de streaming que permite a los usuarios explorar, buscar y gestionar películas. Este proyecto corresponde al frontend de la aplicación, desarrollado con React, TypeScript y Tailwind CSS.
 
-Currently, two official plugins are available:
+## Instrucciones de Configuración y Ejecución
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Requisitos Previos
+- Node.js (v16 o superior)
+- npm o yarn
 
-## Expanding the ESLint configuration
+### Instalación
+1. Clona el repositorio:
+   ```bash
+   git clone <URL_DEL_REPOSITORIO>
+   cd streamFlix-front
+   ```
+2. Instala las dependencias:
+   ```bash
+   npm install
+   ```
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Ejecución en Desarrollo
+Inicia el servidor de desarrollo:
+```bash
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+### Construcción para Producción
+Genera los archivos optimizados para producción:
+```bash
+npm run build
 ```
+
+### Pruebas
+Ejecuta los tests:
+```bash
+npm test
+```
+
+## Componentes Principales
+
+### Página de Inicio
+- **Carrusel destacado** con películas populares.
+- **Secciones de contenido** por categorías/géneros.
+- **Barra de búsqueda** para encontrar películas.
+- **Navegación principal** para acceder a diferentes secciones.
+
+### Autenticación
+- **Formulario de inicio de sesión**.
+- **Formulario de registro**.
+- **Recuperación de contraseña**.
+- **Gestión de sesión** con persistencia de token JWT.
+
+### Catálogo de Películas
+- **Vista de cuadrícula** con tarjetas de películas.
+- **Paginación o scroll infinito**.
+- **Filtros** por género, año, clasificación.
+- **Ordenación** por diferentes criterios.
+
+### Detalle de Película
+- **Información completa** de la película.
+- **Sección de valoraciones y comentarios**.
+- **Formulario para añadir valoración**.
+- **Información relacionada** (películas similares).
+
+### Perfil de Usuario
+- **Visualización de datos personales**.
+- **Edición de perfil**.
+- **Historial de valoraciones**.
+- **Cambio de contraseña**.
+
+### Panel de Administración (si el usuario tiene rol de administrador)
+- **Gestión de películas** (CRUD).
+- **Gestión de usuarios**.
+- **Estadísticas básicas**.
+
+## Funcionalidades Requeridas
+
+### Navegación y Experiencia de Usuario
+- Implementar enrutamiento con React Router.
+- Crear layouts responsivos para diferentes dispositivos.
+- Diseñar transiciones y animaciones para mejorar la experiencia.
+- Implementar modo oscuro/claro.
+
+### Gestión de Estado
+- Utilizar hooks de React para gestión de estado local.
+- Implementar Context API o Redux para estado global.
+- Gestionar estado de autenticación y permisos.
+- Manejar estados de carga y errores.
+
+### Integración con API
+- Configurar cliente HTTP (Axios/Fetch) para comunicación con backend.
+- Implementar interceptores para gestión de tokens.
+- Crear servicios reutilizables para cada entidad.
+- Manejar respuestas y errores de forma consistente.
+
+### Formularios y Validación
+- Crear formularios con validación del lado del cliente.
+- Implementar feedback visual para errores de validación.
+- Gestionar estados de envío y respuesta.
+- Crear componentes de formulario reutilizables.
+
+### Optimización y Rendimiento
+- Implementar lazy loading de componentes.
+- Utilizar memoización donde sea apropiado.
+- Optimizar renderizado con React.memo, useMemo, useCallback.
+- Implementar estrategias para evitar re-renderizados innecesarios.
+
+## Requisitos Técnicos
+
+### Estructura y Organización
+- Utilizar componentes funcionales y hooks.
+- Organizar código por características o dominios.
+- Separar lógica de presentación y de negocio.
+- Implementar patrones de diseño recomendados (Custom Hooks, HOC, etc.).
+
+### Estilizado
+- Utilizar Tailwind CSS para estilos.
+- Crear componentes de UI reutilizables.
+- Implementar diseño responsivo.
+- Asegurar accesibilidad (WCAG).
+
+### Testing
+- Configurar Jest y React Testing Library.
+- Escribir tests para componentes principales.
+- Implementar tests de integración para flujos críticos.
+- Crear mocks para servicios y APIs.
