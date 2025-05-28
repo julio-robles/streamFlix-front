@@ -28,15 +28,15 @@ export default function MoviesList({ query }: Props) {
   if (loading) return <p>Cargando...</p>;
 
   return (
-    <ul>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       {data.map((item: any) => (
-        <li key={item.show.id}>
-          <strong>{item.show.name}</strong>
+        <div key={item.show.id} className="bg-white shadow-md rounded-lg p-4">
+          <strong className="block text-lg font-bold mb-2">{item.show.name}</strong>
           {item.show.image && (
-            <img src={item.show.image.medium} alt={item.show.name} />
+            <img src={item.show.image.medium} alt={item.show.name} className="w-full h-auto rounded-md" />
           )}
-        </li>
+        </div>
       ))}
-    </ul>
+    </div>
   );
 }
