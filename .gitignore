@@ -6,11 +6,20 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+*.log.*
 
+# Node modules and build artifacts
 node_modules
 dist
 dist-ssr
-*.local
+build
+
+# Environment variables
+.env
+.env.*
+
+# Test coverage
+coverage/
 
 # Editor directories and files
 .vscode/*
@@ -22,3 +31,18 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+*.swp
+*.bak
+*.tmp
+*.orig
+
+# Miscellaneous
+Thumbs.db
+*.pid
+*.seed
+*.pid.lock
+
+# Ignore local npm and yarn cache
+.npm
+.yarn
+.pnp.*
